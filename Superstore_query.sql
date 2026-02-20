@@ -17,7 +17,7 @@ SELECT DISTINCT `Customer ID` as CustomerID, `Customer Name`,  segment FROM st_s
 
 SELECT `Row ID`, `Order ID`, Category, `Sub-Category`, `Product Name` FROM st_sales;
 
-SELECT `Customer ID`, `Product ID` FROM st_sales;
+SELECT Distinct `Customer ID`, `Product ID` FROM st_sales;
 
 SELECT Distinct Region, Country, City, State, `Postal Code` FROM st_sales;
 
@@ -26,14 +26,15 @@ SELECT `Row ID`, `Order ID`, `Order Date`,
         `Region`, `Sales`, `Quantity`, 
         `Discount`, `Profit` FROM st_sales;
         
-SELECT 	`Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, Region, `Customer ID`, 
+SELECT 	`Order ID`, `Order Date`, `Ship Date`, `Ship Mode`,Region, `Postal Code`, `Customer ID`, 
          round(sum(`Sales`),2) as Sales, sum(`Quantity`) as Quantity, 
         round(sum(`Discount`),2) as Discount, round(sum(`Profit`),2) as Profit 
-FROM st_sales GROUP BY `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Region`;
+FROM st_sales GROUP BY `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, Region, `Postal Code`;
 
 SELECT `Order ID`, Discount FROM st_sales;
 
 # Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[Customer Name] as Customer_Name  FROM st_sales' at line 1
 
 
+SELECT Distinct Region, Country, City, State, `Postal Code` FROM st_sales;
 
